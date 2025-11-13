@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Karla:ital,wght@0,200..800;1,200..800&family=Twinkle+Star&display=swap');
+
+@font-face {
+    font-family: 'candy-cane';
+    src: url(assets/candy-cane.ttf) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25vw;
+}
+
+.board{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.tile{
+    width: 135px;
+    height: 135px;
+    border: 2px solid;
+}
+
+.game-info h1{
+    font-family: 'candy-cane';
+}
