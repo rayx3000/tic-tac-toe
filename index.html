@@ -9,24 +9,37 @@
 <body>
     <main>
         <div class="game-content">
-            <div class="board">
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
-                <div class="tile"></div>
+            <div class="board-background">
+                <div class="board">
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                    <div class="tile"></div>
+                </div>
             </div>
             <div class="players">
-                <div class="player"></div>
-                <div class="player"></div>
+                <div class="player selected">
+                    <img src="assets/catgirl1.png" alt="catgirl"/>
+                    <span id="player1">Player 1</span>
+                </div>
+                <div class="player">
+                    <img src="assets/catgirl2.png" alt="catgirl"/>
+                    <span id="player2">Player 2</span>
+                </div>
             </div>
         </div>
         <div class="game-info">
             <h1>Tic Tac Toe</h1>
+            <div class="game-options">
+                <button id="reset">Reset</button>
+                <button id="menu">Menu</button>
+                <button id="settings">Settings</button>
+            </div>
         </div>
     </main>
     <script src="script.js"></script>
