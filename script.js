@@ -4,11 +4,18 @@ const board = document.querySelector(".board");
 const player1Container = document.querySelector(".player1");
 const player2Container = document.querySelector(".player2");
 const reset = document.getElementById("reset");
+const replay = document.getElementById('replay');
+const resetScore = document.getElementById("reset-score");
 const winDialog = document.querySelector(".win-dialog");
 const winStatus = document.getElementById("win-status");
+const player1Score = document.getElementById("player1-score");
+const player2Score = document.getElementById("player2-score");
 
 const player1 = createPlayer("Player 1", "X");
 const player2 = createPlayer("Player 2", "O");
+
+let score1 = 0;
+let score2 = 0;
 
 function Gameboard() {
     const frag = document.createDocumentFragment();
@@ -58,9 +65,14 @@ function Gameboard() {
                 if (winnerMark === player1.mark) {
                     winDialog.showModal();
                     winStatus.textContent = "Player 1 Wins!";
+                    score1++;
+                    player1Score.textContent = score1;
+
                 } else {
                     winDialog.showModal();
                     winStatus.textContent = "Player 2 Wins!";
+                    score2++;
+                    player2Score.textContent = score2;
                 }
                 return;
             }
@@ -90,7 +102,17 @@ function Gameboard() {
   replay.addEventListener("click" , () => {
     resetGame();
     winDialog.close();
-  })
+  });
+
+  resetScore.addEventListener("click", () => {
+    resetGame();
+
+    score1 = 0;
+    score2 = 0;
+
+    player1Score.textContent = score1;
+    player2Score.textContent = score2;
+  });
 
   const resetGame = () => {
     const tiles = board.querySelectorAll(".tile");

@@ -88,7 +88,7 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20vw;
+  gap: 18vw;
   padding: 1%;
   font-family: "Twinkle Star", cursive;
   font-size: 1.5em;
@@ -128,7 +128,7 @@ main{
 
 .players{
   display: flex;
-  gap: 15vw;
+  gap: 8vw;
 }
 
 .player{
@@ -215,14 +215,13 @@ main{
   background: radial-gradient(circle, rgba(255, 138, 255, 0.5) 0%, rgba(123, 61, 255, 1) 100%);
 }
 
-#options{
+#reset-score{
   background: #b3dcff;
   background: radial-gradient(circle, rgba(179, 220, 255, 0.5) 0%, rgba(20, 196, 255, 1) 100%);
 }
 
-#menu, #menu-option{
-  background: #6aff00;
-  background: radial-gradient(circle, rgba(106, 255, 0, 0.5) 0%, rgba(162, 217, 52, 1) 100%);
+.score{
+  font-size: 1.35em;
 }
 
 .win-dialog{
