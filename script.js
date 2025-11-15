@@ -3,6 +3,8 @@ const createPlayer = (name, mark) => ({ name, mark });
 const board = document.querySelector(".board");
 const player1Container = document.querySelector(".player1");
 const player2Container = document.querySelector(".player2");
+const reset = document.getElementById("reset");
+const options = document.getElementById("options");
 
 const player1 = createPlayer("Player 1", "X");
 const player2 = createPlayer("Player 2", "O");
@@ -11,7 +13,7 @@ function Gameboard() {
     const frag = document.createDocumentFragment();
         
     let activePlayer = player1;
-    const boardState = Array(9).fill(null);
+    let boardState = Array(9).fill(null);
     let gameOver = false;
 
     const winningCombos = [
@@ -75,7 +77,29 @@ function Gameboard() {
     }
 
     board.appendChild(frag);
-}
 
+  reset.addEventListener("click", () => {
+    const tiles = board.querySelectorAll(".tile");
+    
+    tiles.forEach(tile => {
+        tile.textContent = "";
+        const index = tile.getAttribute("data-index");
+        tile.setAttribute("aria-label", `Grid cell ${index}, empty`);
+    });
+
+    for (let i = 0; i < boardState.length; i++) {
+        boardState[i] = null;
+    }
+
+    boardState = Array(9).fill(null);
+    gameOver = false;
+    activePlayer = player1;
+
+    player1Container.classList.add("selected");
+    player2Container.classList.remove("selected");
+
+    console.log("Game reset.");
+  });
+}
 
 Gameboard();
