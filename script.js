@@ -4,7 +4,8 @@ const board = document.querySelector(".board");
 const player1Container = document.querySelector(".player1");
 const player2Container = document.querySelector(".player2");
 const reset = document.getElementById("reset");
-const options = document.getElementById("options");
+const winDialog = document.querySelector(".win-dialog");
+const winStatus = document.getElementById("win-status");
 
 const player1 = createPlayer("Player 1", "X");
 const player2 = createPlayer("Player 2", "O");
@@ -55,9 +56,11 @@ function Gameboard() {
                 console.log(`Winner: ${winnerMark} — ${winnerMark === player1.mark ? player1.name : player2.name}`);
                 gameOver = true;
                 if (winnerMark === player1.mark) {
-                    alert("Player 1 Wins!")
+                    winDialog.showModal();
+                    winStatus.textContent = "Player 1 Wins!";
                 } else {
-                    alert("Player 2 Wins");
+                    winDialog.showModal();
+                    winStatus.textContent = "Player 2 Wins!";
                 }
                 return;
             }
@@ -72,13 +75,24 @@ function Gameboard() {
                 player1Container.classList.add("selected");
             }
 
-            console.log(`Next player is: ${activePlayer.name} (${activePlayer.mark})`);
+             if (!boardState.includes(null)) {
+                winDialog.showModal();
+                winStatus.textContent = "Draw!";
+                return;
+            }
         });
     }
 
     board.appendChild(frag);
 
-  reset.addEventListener("click", () => {
+  reset.addEventListener("click", () => resetGame());
+
+  replay.addEventListener("click" , () => {
+    resetGame();
+    winDialog.close();
+  })
+
+  const resetGame = () => {
     const tiles = board.querySelectorAll(".tile");
     
     tiles.forEach(tile => {
@@ -97,9 +111,7 @@ function Gameboard() {
 
     player1Container.classList.add("selected");
     player2Container.classList.remove("selected");
-
-    console.log("Game reset.");
-  });
+  }
 }
 
 Gameboard();
