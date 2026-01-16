@@ -92,6 +92,7 @@ main{
   padding: 1%;
   font-family: "Twinkle Star", cursive;
   font-size: 1.5em;
+  height: 100vh;
 }
 
 .game-content{
@@ -230,10 +231,41 @@ main{
   background: #ff8aff;
   background: radial-gradient(circle, rgba(255, 138, 255, 0.5) 0%, rgba(165, 105, 255, 1) 100%);
   color: white;
+  width: 30vw;
 }
 
 .win-dialog div{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+
+@media(max-width: 1200px) {
+  main{
+    gap: 5vw;
+  }
+}
+
+@media(max-width: 975px){
+  .game-info h1{
+    font-size: 2.5em;
+  }
+
+  .win-dialog{
+    width: 32vw;
+  }
+
+  main{
+    gap: 2.3vw;
+  }
+}
+
+@media(max-width: 830px) {
+  main{
+    flex-direction: column-reverse;
+    gap: 3vh;
+    padding-top: 12%;
+    padding-bottom: 20vh;
+  }
 }
